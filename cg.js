@@ -13,17 +13,17 @@ var nrOfDots = 10000; //number of dots that will be drawn on the canvas
 var dotSize = 1; //size of a single dot
 
 function display() {
+    console.log(canvas.width);
     ctx.fillStyle = "#000000";  //background color
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     ctx.fillStyle = "#FFFFFF";  //dots color
+
+    console.log(canvasWidth);
+
     displayTriangle();
  }
 
-async function displayTriangle(){
-    
-    canvasWidth -= dotSize;
-    canvasWidth -= dotSize;
-    
+async function displayTriangle(){    
     //first point
     var x = (canvasWidth/2 + canvasWidth) / 2;
     var y = canvasHeight/2;
@@ -43,9 +43,7 @@ async function displayTriangle(){
             y += (canvasHeight - y) / 2;
         }
         drawOneDot(x, y, dotSize);
-        //await sleep(1);
-        await sleep(sliderSpeed);
-        console.log(sliderSpeed);
+        await sleep(sliderSpeed/100);   //delay
     }
  }
 
