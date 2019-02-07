@@ -23,20 +23,31 @@ function display() {
     var y = canvasHeight/2;
     ctx.fillRect(x, y, dotSize, dotSize);
 
-    for(let i = 0; i < nrOfDots; ++i){
-
-        let randLatura = Math.floor(Math.random() * 3);
-        console.log(randLatura);
-        if(randLatura == 0){
-            x -= (x - canvasWidth/2) / 2;
-            y = y / 2;
-        }else if(randLatura == 1){
-            x = x / 2;
-            y += (canvasHeight - y) / 2;
-        }else {
-            x += (canvasWidth - x) / 2;
-            y += (canvasHeight - y) / 2;
-        }
-        ctx.fillRect(x, y, dotSize, dotSize);
-    }
+    var x = 0;
+    while(x < nrOfDots)
+        setTimeout(function(){
+            let randLatura = Math.floor(Math.random() * 3);
+            if(randLatura == 0){
+                x -= (x - canvasWidth/2) / 2;
+                y = y / 2;
+            }else if(randLatura == 1){
+                x = x / 2;
+                y += (canvasHeight - y) / 2;
+            }else {
+                x += (canvasWidth - x) / 2;
+                y += (canvasHeight - y) / 2;
+            }
+            drawOneDot(x, y, dotSize);
+        
+            x++;
+            
+        }, 200);
  }
+
+function drawOneDot(x, y, dotSize){
+    ctx.fillRect(x, y, dotSize, dotSize);
+}
+
+function loop(){
+    
+}
