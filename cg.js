@@ -3,12 +3,13 @@ var canvasWidth = canvas.width;
 var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 
-var nrOfDots = 100000; //number of dots that will be drawn on the canvas 
+var nrOfDots = 1000; //number of dots that will be drawn on the canvas 
 var dotSize = 1; //size of a single dot
 
 function display() {
-    ctx.fillStyle = "#FFFFFF";
-    
+    ctx.fillStyle = "#000000";  //background color
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    ctx.fillStyle = "#FFFFFF";  //dots color
     displayTriangle();
  }
 
