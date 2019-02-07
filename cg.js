@@ -3,15 +3,40 @@ var canvasWidth = canvas.width;
 var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
 
-var nrOfDots = 100;//number of dots that will be drawn on the canvas 
+var nrOfDots = 10000; //number of dots that will be drawn on the canvas 
+var dotSize = 1; //size of a single dot
 
 function display() {
     ctx.fillStyle = "#FFFFFF";
     
-    for(let i = 0; i < nrOfDots; ++i){
-        let x = Math.floor(Math.random() * canvasWidth);
-        let y = Math.floor(Math.random() * canvasHeight);
+    displayTriangle();
+ }
 
-        ctx.fillRect(x, y, 1, 1);
+
+ function displayTriangle(){
+    
+    canvasWidth -= dotSize;
+    canvasWidth -= dotSize;
+    
+    //first point
+    var x = (canvasWidth/2 + canvasWidth) / 2;
+    var y = canvasHeight/2;
+    ctx.fillRect(x, y, dotSize, dotSize);
+
+    for(let i = 0; i < nrOfDots; ++i){
+
+        let randLatura = Math.floor(Math.random() * 3);
+        console.log(randLatura);
+        if(randLatura == 0){
+            x -= (x - canvasWidth/2) / 2;
+            y = y / 2;
+        }else if(randLatura == 1){
+            x = x / 2;
+            y += (canvasHeight - y) / 2;
+        }else {
+            x += (canvasWidth - x) / 2;
+            y += (canvasHeight - y) / 2;
+        }
+        ctx.fillRect(x, y, dotSize, dotSize);
     }
  }
