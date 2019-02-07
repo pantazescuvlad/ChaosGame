@@ -2,8 +2,14 @@ var canvas = document.getElementById("window");
 var canvasWidth = canvas.width;
 var canvasHeight = canvas.height;
 var ctx = canvas.getContext("2d");
+var sliderSpeed;
 
-var nrOfDots = 1000; //number of dots that will be drawn on the canvas 
+var slider = document.getElementById("slider");
+slider.oninput = function() {
+    sliderSpeed = this.value;
+}
+
+var nrOfDots = 10000; //number of dots that will be drawn on the canvas 
 var dotSize = 1; //size of a single dot
 
 function display() {
@@ -12,7 +18,6 @@ function display() {
     ctx.fillStyle = "#FFFFFF";  //dots color
     displayTriangle();
  }
-
 
 async function displayTriangle(){
     
@@ -38,7 +43,9 @@ async function displayTriangle(){
             y += (canvasHeight - y) / 2;
         }
         drawOneDot(x, y, dotSize);
-        await sleep(1);
+        //await sleep(1);
+        await sleep(sliderSpeed);
+        console.log(sliderSpeed);
     }
  }
 
