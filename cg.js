@@ -37,7 +37,7 @@ function display() {
             y += (canvasHeight - y) / 2;
         }
         drawOneDot(x, y, dotSize);
-        await sleep(5);
+        await sleep(1);
     }
  }
 
