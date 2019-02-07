@@ -13,7 +13,7 @@ function display() {
  }
 
 
- async function displayTriangle(){
+async function displayTriangle(){
     
     canvasWidth -= dotSize;
     canvasWidth -= dotSize;
