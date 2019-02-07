@@ -15,4 +15,3 @@ function display() {
         ctx.fillRect(x, y, 1, 1);
     }
  }
-
