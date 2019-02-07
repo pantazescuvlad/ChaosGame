@@ -13,13 +13,9 @@ var nrOfDots = 10000; //number of dots that will be drawn on the canvas
 var dotSize = 1; //size of a single dot
 
 function display() {
-    console.log(canvas.width);
     ctx.fillStyle = "#000000";  //background color
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     ctx.fillStyle = "#FFFFFF";  //dots color
-
-    console.log(canvasWidth);
-
     displayTriangle();
  }
 
